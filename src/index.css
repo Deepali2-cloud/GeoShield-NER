@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-navy-950: #0a1c33;
+  --color-navy-900: #0f2a4a;
+  --color-navy-800: #17365d;
+  --color-navy-700: #244a7a;
+  --color-accent: #f59e0b;
+
+  /* Risk palette: text colour on a tinted background. Always paired with a text label and a shape. */
+  --color-risk-low: #166534;
+  --color-risk-low-bg: #dcfce7;
+  --color-risk-low-solid: #16a34a;
+  --color-risk-moderate: #854d0e;
+  --color-risk-moderate-bg: #fef3c7;
+  --color-risk-moderate-solid: #d97706;
+  --color-risk-high: #9a3412;
+  --color-risk-high-bg: #ffedd5;
+  --color-risk-high-solid: #ea580c;
+  --color-risk-critical: #991b1b;
+  --color-risk-critical-bg: #fee2e2;
+  --color-risk-critical-solid: #dc2626;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Leaflet integration */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #e2e8f0;
+}
+.gs-marker svg {
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.55));
+}
+.gs-marker:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.gs-marker .gs-halo { opacity: 0; }
+.gs-marker .gs-shape { transform-box: view-box; transform-origin: 14px 14px; transform: scale(0.9); transition: transform 0.15s; }
+.gs-marker.gs-selected .gs-halo { opacity: 1; }
+.gs-marker.gs-selected .gs-shape { transform: scale(0.72); }

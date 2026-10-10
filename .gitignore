@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+screenshots
+.env
+.env.*
+!.env.example
+.dev.vars
+.wrangler
+*.log

@@ -1,0 +1,22 @@
+// Local-first Worker configuration. Nothing here creates or touches a remote resource.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "geoshield-ner-api",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-06-01",
+
+  // `wrangler dev` serves the API here; the Vite dev server proxies /api to it (see vite.config.ts).
+  "dev": { "port": 8787 },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "geoshield-ner-db",
+      // PLACEHOLDER. Local development and `--local` migrations do not use it. Replace it with a real
+      // database ID only if/when you create a remote D1 database yourself (not part of Phase 4).
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+      // No "remote": true here, so bindings stay local by default. Local state lives in .wrangler/ (git-ignored).
+    }
+  ]
+}

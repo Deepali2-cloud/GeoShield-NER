@@ -1,0 +1,10 @@
+# Local Worker environment secrets example
+# Copy this file to .dev.vars for local development (git-ignored)
+# Wrangler automatically loads .dev.vars during local execution.
+#
+# Either set ADMIN_PASSWORD directly for local dev:
+ADMIN_PASSWORD=local-dev-admin-secret
+#
+# Or set PBKDF2 hash + salt:
+# ADMIN_PASSWORD_HASH=<64-char-hex>
+# ADMIN_PASSWORD_SALT=<32-char-hex>
